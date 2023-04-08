@@ -21,6 +21,11 @@ def hello_world():
     return "<p>Hello, World!</p>"
 
 
-@app.route("/gethackathons", methods=['GET'])
+@app.route("/gethackathons", methods=['GET', 'POST'])
 def gethackathons():
-    return hackathons
+    if request.method=='POST':
+        hackathons["New Hackathon"]=request.json
+        return hackathons
+
+    else:
+        return hackathons
