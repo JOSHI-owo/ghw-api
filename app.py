@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,request
 
 app = Flask(__name__)
 
@@ -26,6 +26,5 @@ def gethackathons():
     if request.method=='POST':
         hackathons["New Hackathon"]=request.json
         return hackathons
-
     else:
         return hackathons
